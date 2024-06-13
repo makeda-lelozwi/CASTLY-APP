@@ -1,0 +1,149 @@
+/* BASE STYLES */
+:root {
+  /*BACKGROUND COLORS*/
+  --main-bg-clr: #0e0308;
+  --search-bar-clr: #320b1d;
+  --show-preview-container-clr: #581835;
+  --media-player-bg-clr: #e6901a;
+  --episode-bg-clr: rgba(14, 3, 8, 0.27);
+
+  /* FORM COLORS*/
+  --form-bg-clr: rgba(14, 3, 8, 0.65);
+  --button-clr: #a8531d;
+
+  /*TEXT COLORS*/
+  --main-txt-clr: #d8cec5;
+
+  /*FONTS*/
+  --main-font: "Roboto", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* SIGN-UP PAGE */
+.sign-up-page {
+  background-color: var(--media-player-bg-clr);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  font-family: var(--main-font);
+}
+
+.sign-up-container {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.sign-up-container h2 {
+  margin-left: 3rem;
+  text-transform: uppercase;
+}
+
+.sign-up-form {
+  background-color: var(--form-bg-clr);
+  padding: 1rem;
+  color: var(--main-txt-clr);
+}
+
+h3 {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  padding: 1rem;
+  margin-top: 2px;
+  font-weight: bold;
+}
+
+input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid var(--main-txt-clr);
+  width: 150px;
+  color: var(--main-txt-clr);
+}
+
+input[type="email"] {
+  margin-left: 26px;
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  background-color: var(--button-clr);
+  color: var(--main-txt-clr);
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  width: 100px;
+}
+
+/* LAYOUT */
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--main-bg-clr);
+  width: 100%;
+}
+
+/* HEADER */
+.header-container {
+  display: flex;
+  gap: 3rem;
+  margin-top: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  width: 450px;
+  height: 0.2rem;
+  background-color: var(--search-bar-clr);
+  border: black solid;
+  border-radius: 40px;
+  border-width: 3px;
+}
+
+.nav-link {
+  color: var(--main-txt-clr);
+  font-family: var(--main-font);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* FOOTER */
+.footer {
+  color: var(--main-txt-clr);
+  font-family: var(--main-font);
+  text-align: center;
+  background-color: black;
+  padding: 2rem;
+  font-size: 0.8rem;
+  margin-top: auto;
+}
