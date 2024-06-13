@@ -89,7 +89,7 @@ input:focus {
   outline: none;
 }
 
-button {
+.sign-up-button {
   background-color: var(--button-clr);
   color: var(--main-txt-clr);
   padding: 10px;
@@ -143,7 +143,7 @@ button {
   font-family: var(--main-font);
   text-align: center;
   background-color: black;
-  padding: 2rem;
+  padding: 1rem;
   font-size: 0.8rem;
   margin-top: auto;
 }
