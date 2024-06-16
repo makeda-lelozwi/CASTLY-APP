@@ -19,9 +19,13 @@ const AllPodcasts = () => {
     <div className="podcasts-container">
       {podcasts.map((podcast) => {
         return (
-          <Link to={`${podcast.id}`} key={podcast.id}>
+          <Link
+            to={`${podcast.id}`}
+            key={podcast.id}
+            style={{ textDecoration: "none" }}
+          >
             <div key={podcast.id} className="podcast-card">
-              <div className="podcast-image-container">
+              <div className="podcasts-image-container">
                 <img
                   className="podcast-image"
                   src={podcast.image}

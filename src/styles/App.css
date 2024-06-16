@@ -6,6 +6,7 @@
   --podcasts-container-clr: #581835;
   --media-player-bg-clr: #e6901a;
   --episode-bg-clr: rgba(14, 3, 8, 0.27);
+  --pod-image-bg-clr: #b8945c;
 
   /* FORM COLORS*/
   --form-bg-clr: rgba(14, 3, 8, 0.65);
@@ -141,6 +142,7 @@ input:focus {
 
 /* PODCASTS */
 .podcasts-container {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -197,14 +199,84 @@ input:focus {
   font-family: var(--main-font);
 }
 
-.podcast-desc {
+.indiv-podcast-image-container {
+  max-width: 500px;
+  height: 200px;
+  background-color: var(--pod-image-bg-clr);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.indiv-podcast-image {
+  object-fit: cover;
+  object-position: center;
+  width: 200px;
+}
+.podcast-details {
   display: flex;
   flex-direction: row;
   gap: 10px;
+}
+
+.podcast-desc {
+  padding: 1rem;
+  display: flex;
+  gap: 2rem;
+}
+
+.podcast-details {
+  background-color: var(--media-player-bg-clr);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.genres {
+  display: flex;
+  margin: 2rem;
+}
+
+.genre-tag {
+  color: black;
+  background-color: var(--main-txt-clr);
+  margin: 0 1rem;
+  padding: 1rem;
+  border-radius: 20px;
+  font-size: small;
+}
+
+.podcast-episodes {
+  display: flex;
+  position: relative;
+}
+/* SEASONS */
+.season-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  width: 200px;
+
+  border-radius: 0.5rem;
+  padding: 0;
+}
+.season-link {
   color: var(--main-txt-clr);
 }
 
 /* EPISODES */
+/* .episodes-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  border: red solid;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--media-player-bg-clr);
+  border-radius: 0.5rem;
+} */
 .play-icon-container {
   min-width: 100px;
   height: 100px;
