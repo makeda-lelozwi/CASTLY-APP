@@ -87,7 +87,7 @@ const Podcast = () => {
         <div>
           <p className="podcast-details">{podcast.description}</p>
           <div className="genres">
-            {podcast.genres.map((genre) => {
+            {podcast.genres?.map((genre) => {
               return (
                 <span key={genre} className="genre-tag">
                   {genre}
