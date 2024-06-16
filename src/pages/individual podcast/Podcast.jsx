@@ -34,7 +34,11 @@ const Podcast = () => {
       <h1 className="podcast-name">{podcast.title}</h1>
       <div className="podcast-desc">
         <div className="podcast-image-container">
-          <img className="podcast-image" src={podcast.image} alt={podcast.title} />
+          <img
+            className="podcast-image"
+            src={podcast.image}
+            alt={podcast.title}
+          />
         </div>
         <p>{podcast.description}</p>
       </div>
