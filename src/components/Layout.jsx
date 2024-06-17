@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
+import MediaPlayer from "./MediaPlayer";
 import Footer from "./Footer";
 
 const Layout = () => {
@@ -8,10 +9,11 @@ const Layout = () => {
       <Header />
       <main>
         <Outlet />
+        <MediaPlayer />
       </main>
       <Footer />
     </div>
-  )
-}
+  );
+};
 
 export default Layout;

@@ -16,27 +16,34 @@ const AllPodcasts = () => {
   }, []);
 
   return (
+    <div className="explore-page">
     <div className="podcasts-container">
-      {podcasts.map((podcast) => {
-        return (
-          <Link
-            to={`${podcast.id}`}
-            key={podcast.id}
-            style={{ textDecoration: "none" }}
-          >
-            <div key={podcast.id} className="podcast-card">
-              <div className="podcasts-image-container">
-                <img
-                  className="podcast-image"
-                  src={podcast.image}
-                  alt={podcast.title}
-                />
+      <div className="podcasts-content">
+        {podcasts.map((podcast) => {
+          return (
+            <Link
+              to={`${podcast.id}`}
+              key={podcast.id}
+              style={{ textDecoration: "none" }}
+            >
+              <div key={podcast.id} className="podcast-card">
+                <div className="podcasts-image-container">
+                  <img
+                    className="podcast-image"
+                    src={podcast.image}
+                    alt={podcast.title}
+                  />
+                </div>
+                <h2 className="podcast-title">{podcast.title}</h2>
               </div>
-              <h3 className="podcast-title">{podcast.title}</h3>
-            </div>
-          </Link>
-        );
-      })}
+            </Link>
+          );
+        })}
+      </div>
+    </div>
+    <div className="carousel-container">
+        <h1>Carousel</h1>
+    </div>
     </div>
   );
 };
