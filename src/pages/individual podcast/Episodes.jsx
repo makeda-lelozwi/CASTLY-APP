@@ -3,10 +3,10 @@ const  Episode = ({data=EpisodeObject}) => {
   console.log(data)
   return (
     <div className="episode-card" key={data.episode}>
-       <div className="play-icon-container">Icon Episode</div>
+       <div className="play-icon-container">Icon</div>
        <div className="episode-details">
-        <h3>{data.title}</h3>
-        <h5>{data.description}</h5>
+        <h4>{data.title}</h4>
+        <p>{data.description}</p>
        </div>
     </div>
   )

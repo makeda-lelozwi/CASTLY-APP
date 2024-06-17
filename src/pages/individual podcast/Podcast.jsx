@@ -75,7 +75,7 @@ const Podcast = () => {
 
   return (
     <div className="podcast-info">
-      <h1 className="podcast-name">{podcast.title}</h1>
+      <h3 className="podcast-name">{podcast.title}</h3>
       <div className="podcast-desc">
         <div className="indiv-podcast-image-container">
           <img
@@ -84,7 +84,7 @@ const Podcast = () => {
             alt={podcast.title}
           />
         </div>
-        <div>
+        <div className="details-and-genres">
           <p className="podcast-details">{podcast.description}</p>
           <div className="genres">
             {podcast.genres?.map((genre) => {
@@ -116,6 +116,7 @@ const Podcast = () => {
                     textDecoration: "none",
                     fontWeight:
                       season.title === seasonSelected ? "bold" : "normal",
+                    color: season.title === seasonSelected ? "#581835" : "black",
                   }}
                 >
                   <p>{season.title}</p>
