@@ -17,7 +17,7 @@ const Header = () => {
           Explore
         </NavLink>
         <NavLink
-          to="/favorites"
+          to="favorites"
           style={({ isActive }) => (isActive ? activeStyles : null)}
           className="nav-link"
         >

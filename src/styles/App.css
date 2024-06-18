@@ -144,7 +144,7 @@ input:focus {
 .explore-page {
   display: flex;
   gap: 1rem;
-  margin-bottom: 1rem
+  margin-bottom: 1rem;
 }
 .podcasts-container {
   position: relative;
@@ -162,7 +162,7 @@ input:focus {
 
 .podcasts-content {
   height: 65vh;
-  width: 70vw;  
+  width: 70vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -197,13 +197,12 @@ input:focus {
   font-size: 1rem;
   text-align: center;
   width: 150px;
-  
 }
 
 /* CAROUSEL */
 .carousel-container {
   background-color: var(--main-txt-clr);
-  width: 25vw
+  width: 25vw;
 }
 
 /* INDIVIDUAL PODCAST */
@@ -220,8 +219,6 @@ input:focus {
   border-radius: 0.2rem;
   font-family: var(--main-font);
 }
-
-
 
 .indiv-podcast-image-container {
   width: 100px;
@@ -265,7 +262,6 @@ input:focus {
   display: flex;
   margin: 0.5rem 1rem;
   justify-content: start;
-  
 }
 
 .genre-tag {
@@ -283,7 +279,6 @@ input:focus {
   display: flex;
   position: relative;
   gap: 0.5rem;
-  
 }
 /* SEASONS */
 .season-container {
@@ -311,9 +306,16 @@ input:focus {
   overflow: auto;
 }
 .play-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-width: 50px;
   height: 50px;
-  border: red solid;
+  margin: 0 0.5rem;
+}
+
+.heart-icon-container {
+  justify-self: end;
 }
 
 .episode-div {
@@ -341,6 +343,29 @@ input:focus {
 
 .episode-details p {
   font-size: 12px;
+}
+
+/* FAVOURITES */
+.favourite-episodes-card {
+  background-color: var(--media-player-bg-clr);
+  border-radius: 10px;
+  width: 200px;
+  height: 150px;
+  padding: 1rem;
+  color: black;
+}
+
+.favourite-episodes-card-row-one {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+}
+
+.favourite-episodes-image {
+  width: 50px;
+  height: 50px;
+  margin-right: 1rem;
+  background-color: var(--pod-image-bg-clr);
 }
 
 /* MEDIA PLAYER */
