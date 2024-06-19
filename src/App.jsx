@@ -5,6 +5,7 @@ import SignUp from "./components/SignUp";
 import AllPodcasts from "./pages/explore/AllPodcasts";
 import Podcast from "./pages/individual podcast/Podcast";
 import FavouriteEpisodes from "./pages/favourites/FavouriteEpisodes";
+import Episode from "./pages/individual podcast/Episodes";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Route path="explore" element={<Layout />}>
         <Route index element={<AllPodcasts />} />
         <Route path=":id" element={<Podcast />} />
+        <Route path="episodes" element={<Episode />} />
         <Route path="favorites" element={<FavouriteEpisodes />} />
       </Route>
     </Routes>
