@@ -3,19 +3,8 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import Episode from "./Episodes";
-const episode = {
-  title: String,
-  description: String,
-  episode: Number,
-  file: String,
-};
-
-const season = {
-  season: Number,
-  title: String,
-  image: String,
-  episodes: [episode],
-};
+import { season, episode } from "../../constants/Constants";
+import LoadingPage from "../Loading";
 
 const Podcast = () => {
   const initialState = {
@@ -37,6 +26,8 @@ const Podcast = () => {
    * Every time selected season changes
    * set the season title based on the selected season
    */
+
+  const [isLoading, setIsLoading] = useState(true)
   const [seasonSelected, setSeasonSelected] = useState("");
 
   /**
@@ -52,8 +43,13 @@ const Podcast = () => {
       .then((data) => {
         setSeasonSelected(data.seasons[0].title || "");
         setPodcast(data);
+        setIsLoading(false);
       });
   }, []);
+
+  if (isLoading) {
+    return <LoadingPage />
+  } 
 
   console.log(seasonSelected);
 
@@ -116,7 +112,8 @@ const Podcast = () => {
                     textDecoration: "none",
                     fontWeight:
                       season.title === seasonSelected ? "bold" : "normal",
-                    color: season.title === seasonSelected ? "#581835" : "black",
+                    color:
+                      season.title === seasonSelected ? "#581835" : "black",
                   }}
                 >
                   <p>{season.title}</p>
@@ -135,7 +132,12 @@ const Podcast = () => {
             episodes[seasonSelected]?.map((episode) => {
               return (
                 <div key={episode.id}>
-                  <Episode data={episode} />
+                  <Episode
+                    data={episode}
+                    key={episode.title}
+                    seasonTitle={seasonSelected}
+                    podcastTitle={podcast.title}
+                  />
                 </div>
               );
             })

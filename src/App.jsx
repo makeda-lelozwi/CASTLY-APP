@@ -15,7 +15,6 @@ function App() {
         <Route path=":id" element={<Podcast />} />
         <Route path="favorites" element={<FavouriteEpisodes />} />
       </Route>
-      
     </Routes>
   );
 }
