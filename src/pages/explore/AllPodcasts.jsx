@@ -63,7 +63,6 @@ const AllPodcasts = () => {
 
   //State/store of the searched podcast title
   const [searchedTitle, setSearchedTitle] = useState("");
-  const [openSearch, setOpenSearch] = useState(false);
 
   /**
    * Memorizing variable
@@ -83,7 +82,7 @@ const AllPodcasts = () => {
        
       </div>
       <div className="podcasts-container">
-        <FilterButton className="filter-button"  searchedTitle={searchedTitle} setSearchedTitle={setSearchedTitle} setOpenSearch={setOpenSearch} />
+        <FilterButton className="filter-button"  searchedTitle={searchedTitle} setSearchedTitle={setSearchedTitle} />
         {
           Podcasts.isLoading?<LoadingPage/>:
         <div className="podcasts-content">
@@ -113,10 +112,10 @@ const AllPodcasts = () => {
         </div>
         }
       </div>
-      <div className="carousel-container">
+      {/* <div className="carousel-container">
         <h1>Carousel</h1>
         <Carousel />
-      </div>
+      </div> */}
       
     </div>
   );

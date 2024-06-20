@@ -1,8 +1,8 @@
 import { Divider, IconButton, InputAdornment, TextField } from "@mui/material";
 import { IoClose } from "react-icons/io5";
-import { FaFilter } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
 
-export default function FilterButton({searchedTitle,setSearchedTitle,openSearch,setOpenSearch}){
+export default function FilterButton({searchedTitle,setSearchedTitle}){
   return(
     <TextField
     id="filter-button"
@@ -20,10 +20,9 @@ export default function FilterButton({searchedTitle,setSearchedTitle,openSearch,
               sx={{ borderRadius: 1, backgroundColor: "transparent" }}
               onClick={() => {
                 setSearchedTitle("");
-                setOpenSearch(false);
               }}
             >
-              <FaFilter size={"15px"} />
+              <FaSearch size={"15px"} />
             </IconButton>
           }
         </InputAdornment>
