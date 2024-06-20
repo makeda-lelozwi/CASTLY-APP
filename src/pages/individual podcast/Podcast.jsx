@@ -27,7 +27,7 @@ const Podcast = () => {
    * set the season title based on the selected season
    */
 
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
   const [seasonSelected, setSeasonSelected] = useState("");
 
   /**
@@ -48,8 +48,8 @@ const Podcast = () => {
   }, []);
 
   if (isLoading) {
-    return <LoadingPage />
-  } 
+    return <LoadingPage />;
+  }
 
   console.log(seasonSelected);
 
