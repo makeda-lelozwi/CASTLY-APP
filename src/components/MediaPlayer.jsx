@@ -13,8 +13,6 @@ const MediaPlayer = () => {
 
   },[mediaFile.title]);
   
-  console.log(mediaFile);
-
   return (
     <div className="media-player-container">
   

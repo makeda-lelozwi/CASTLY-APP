@@ -6,7 +6,6 @@ import AllPodcasts from "./pages/explore/AllPodcasts";
 import Podcast from "./pages/individual podcast/Podcast";
 import FavouriteEpisodes from "./pages/favourites/FavouriteEpisodes";
 import Episode from "./pages/individual podcast/Episodes";
-
 function App() {
   return (
     <Routes>

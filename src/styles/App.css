@@ -122,7 +122,7 @@ input:focus {
 
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 1rem;
   width: 450px;
@@ -141,6 +141,20 @@ input:focus {
   font-size: 1.1rem;
 }
 
+/* FILTER BY TITLE */
+.MuiFormControl-root {
+  background-color: var(--search-bar-clr) !important;
+  margin: 1rem !important;
+  border-radius: 40px !important;
+}
+
+.css-2ehmn7-MuiInputBase-root-MuiOutlinedInput-root {
+  background-color: var(--search-bar-clr) !important;
+  height: 2rem;
+  border-radius: 40px !important;
+  color: var(--main-txt-clr) !important;
+}
+
 /* PODCASTS */
 .explore-page {
   display: flex;
@@ -155,7 +169,7 @@ input:focus {
   align-items: center;
   height: 70vh;
   width: 70vw;
-  padding-top: 1rem;
+  padding-top: 0.1rem;
   margin-top: 1rem;
   background-color: var(--podcasts-container-clr);
   border-radius: 0.5rem;

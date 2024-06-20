@@ -1,8 +1,9 @@
+import { Typography } from '@mui/material';
 const LoadingPage = () => {
 
   return (
     <div className="loading-page-container">
-      <h1>Fetching podcasts</h1>
+      <Typography variant='h1'>Loading ...</Typography> 
     </div>
   )
 }

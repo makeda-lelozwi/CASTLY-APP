@@ -10,7 +10,7 @@ const Header = () => {
       <div>Logo</div>
       <nav className="header">
         <NavLink
-          to="/explore"
+          to="./"
           style={({ isActive }) => (isActive ? activeStyles : null)}
           className="nav-link"
         >
@@ -22,13 +22,6 @@ const Header = () => {
           className="nav-link"
         >
           Favorites
-        </NavLink>
-        <NavLink
-          to="/search"
-          style={({ isActive }) => (isActive ? activeStyles : null)}
-          className="nav-link"
-        >
-          Search
         </NavLink>
       </nav>
     </header>
