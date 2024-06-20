@@ -10,7 +10,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<SignUp />} />
-      <Route path="explore" element={<Layout />}>
+      <Route path="/explore" element={<Layout />}>
         <Route index element={<AllPodcasts />} />
         <Route path=":id" element={<Podcast />} />
         <Route path="episodes" element={<Episode />} />

@@ -43,9 +43,15 @@ body {
   margin: 0 auto;
 }
 
+.sign-up-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .sign-up-container h2 {
   margin-left: 3rem;
   text-transform: uppercase;
+  color: var(--search-bar-clr);
 }
 
 .sign-up-form {
