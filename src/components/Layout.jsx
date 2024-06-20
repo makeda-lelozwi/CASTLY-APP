@@ -4,7 +4,7 @@ import MediaPlayer from "./MediaPlayer";
 import Footer from "./Footer";
 import { PodcastContext } from "../context/PodcastContext";
 import {  useEffect, useState } from "react";
-import { episode, favouritesEpisodes, favouritesEpisodesKey } from "../constants/Constants";
+import {  favouritesEpisodesKey } from "../constants/Constants";
 import { extractFromLocalStorage, setToLocalStorage } from "../constants/LocalStorage";
 
 const Layout = () => {
