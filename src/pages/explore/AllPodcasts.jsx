@@ -108,17 +108,6 @@ const AllPodcasts = () => {
   //State of filter by genre
   const [selectedGenre, setSelectedGenre] = useState("all");
 
-  const genreIds = {
-    1: "personal growth",
-    2: "investigative journalism",
-    3: "history",
-    4: "comedy",
-    5: "entertainment",
-    6: "business",
-    7: "fiction",
-    8: "news",
-    9: "kids and family",
-  };
 
   const handleGenreChange = (event) => {
     setSelectedGenre(event.target.value);
