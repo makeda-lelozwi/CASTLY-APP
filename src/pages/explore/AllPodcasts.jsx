@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import LoadingPage from "../Loading";
 import FilterButton from "../../components/FilterButton";
 
+//FETCHING THE LIST OF ALL PODCASTS
 const AllPodcasts = () => {
   const [Podcasts, dispatchPodcasts] = useReducer(
     (currentState, action) => {
@@ -42,82 +43,81 @@ const AllPodcasts = () => {
         dispatchPodcasts({ type: "failed", payload: err.message });
       })
       .finally(() => dispatchPodcasts({ type: "loading", payload: false }));
-  }, []); 
-
-  /**
-   * State of the list of genres
-   */
-  const [genres, setGenres] = useState([]);
-
-  const setGenresWithNoduplicates = () => {
-    setGenres([...new Set(genres)]);
-  };
-  /**
-   * Fetch the list of genres from the api
-   * If error, set the list of genres to ["No genres found"]
-   */
-  useEffect(() => {
-    const setOfGenres = new Set(
-      Podcasts.data
-        .map((pod) => pod.genres)
-        .reduce((prev, curr) => {
-          console.log(prev);
-          return prev.concat(...curr);
-        }, [])
-    );
-    console.log(Array.from(setOfGenres));
-
-    /**
-     * Check if the genre exist
-     * @param {Number} id of the genre being searched
-     * @returns true if the genre exist else false
-     */
-    const existOnGenre = (id) => {
-      return genres.some((gen) => gen.id === id);
-    };
-    Array.from(setOfGenres).forEach((id) => {
-      if (!existOnGenre(id))
-        fetch(`https://podcast-api.netlify.app/genre/${id}`)
-          .then((res) => {
-            return res.json();
-          })
-          .then((data) => {
-            setGenres((currentState) => [
-              ...currentState,
-              { id: id, title: data.title },
-            ]);
-          })
-          .catch((err) => {
-            dispatchPodcasts({ type: "failed", payload: err.message });
-          });
-    });
   }, []);
 
+  //sort the list of podcasts by alphabetical order
+  if (Podcasts.data) {
+    Podcasts.data.sort((a, b) => (a.title > b.title ? 1 : -1));
+  }
+
+  const [selectedSort, setSelectedSort] = useState("a-z");
+
   /**
-   * Search podcasts by title or filter by genre id
+   * Sorts the given data based on the specified sortType.
+   *
+   * @param {Array} data - The array of data to be sorted.
+   * @param {string} sortType - The type of sorting to be applied. It can be one of the following:
+   *   - "a-z": Sorts the data in ascending order based on the title property.
+   *   - "z-a": Sorts the data in descending order based on the title property.
+   *   - "newest": Sorts the data in descending order based on the updated property.
+   *   - "oldest": Sorts the data in ascending order based on the updated property.
+   * @return {Array} The sorted data array.
+   */
+  const sortData = (data = [], sortType = String) => {
+    switch (sortType) {
+      case "a-z":
+        return data.sort((a, b) => (a.title > b.title ? 1 : -1));
+
+      case "z-a":
+        return data.sort((a, b) => (a.title < b.title ? 1 : -1));
+
+      case "newest":
+        return data.sort((a, b) => (a.updated < b.updated ? 1 : -1));
+
+      case "oldest":
+        return data.sort((a, b) => (a.updated > b.updated ? 1 : -1));
+
+      default:
+        return data;
+    }
+  };
+
+  const handleSortChange = (event) => {
+    setSelectedSort(event.target.value);
+    const sortedData = sortData(Podcasts.data, event.target.value);
+
+    dispatchPodcasts({ type: "successful", payload: sortedData });
+  };
+
+  /**
+   * Search podcasts by title
    * @param {Array} podcasts list of podcasts
    * @param {*} podcastTitle  title of podcast
-   * @param {Number} selectedGenreId is the id of the selected genre
    * @returns  list of podcast if the title is found else empty list
    */
-  const search = (podcasts = [], podcastTitle = "", selectedGenreId) => {
-    return podcasts.filter(
-      (podcast) =>
-        podcast.title
-          ?.toLowerCase()
-          .trim()
-          .includes(podcastTitle?.toLowerCase().trim()) ||
-        podcast.genres.some((genre) => {
-          if (selectedGenreId === 0) return true;
-          return genre.id === selectedGenreId;
-        })
+  const search = (podcasts = [], podcastTitle = "") => {
+    return podcasts.filter((podcast) =>
+      podcast.title
+        ?.toLowerCase()
+        .trim()
+        .includes(podcastTitle?.toLowerCase().trim())
     );
+  };
+
+  const filterByGenre = (podcasts = [], selectedGenre) => {
+    if ((selectedGenre = "0")) {
+      return podcasts;
+    } else {
+      return podcasts.filter((podcast) =>
+        podcast.genres?.includes(parseInt(selectedGenre))
+      );
+    }
   };
 
   //State/store of the searched podcast title
   const [searchedTitle, setSearchedTitle] = useState("");
   //State of filter by genre
-  const [selectedGenre, setSelectedGenre] = useState({});
+  const [selectedGenre, setSelectedGenre] = useState("2");
 
   /**
    * Memorizing variable
@@ -127,20 +127,31 @@ const AllPodcasts = () => {
    */
 
   const memorizedPodcasts = useMemo(() => {
-    const searched = search(Podcasts.data, searchedTitle, selectedGenre.id);
-    return searched.length > 0 ? searched : Podcasts.data;
-  }, [Podcasts, searchedTitle, selectedGenre]);
+    const searched = search(Podcasts.data, searchedTitle);
+
+    
+
+   const sortedData = sortData([...searched], selectedSort);
+    return sortedData?.length > 0 ? sortedData : Podcasts.data;
+  }, [Podcasts, searchedTitle, selectedSort]);
 
   return (
     <div className="explore-page">
       <div className="podcasts-container">
+        <select value={selectedSort} onChange={handleSortChange}>
+          <option value="a-z"> A-Z</option>
+          <option value="z-a"> Z-A</option>
+          <option value="newest"> Newest</option>
+          <option value="oldest"> Oldest</option>
+        </select>
         <FilterButton
           className="filter-button"
           searchedTitle={searchedTitle}
           setSearchedTitle={setSearchedTitle}
-          filters={genres}
+          selectedFilter={selectedGenre}
           setSelectedFilter={setSelectedGenre}
         />
+
         {Podcasts.isLoading ? (
           <LoadingPage />
         ) : (
@@ -181,10 +192,6 @@ const AllPodcasts = () => {
           </div>
         )}
       </div>
-      {/* <div className="carousel-container">
-        <h1>Carousel</h1>
-        <Carousel />
-      </div> */}
     </div>
   );
 };

@@ -5,6 +5,8 @@ import { useContext } from "react";
 const MediaPlayer = () => {
   const {mediaFile} = useContext(PodcastContext);
   const[sound,setSound] = useState("")
+  
+  
    
   
   useEffect(() => {
@@ -15,8 +17,10 @@ const MediaPlayer = () => {
   
   return (
     <div className="media-player-container">
-  
-        <audio id="media-player" className="media-player" src={sound} autoPlay  controls/>
+      <div>
+
+      </div>
+      <audio id="media-player" className="media-player" src={sound} autoPlay  controls/>
     
     </div>
   );
