@@ -179,7 +179,7 @@ select {
 }
 
 select:focus {
-  border: var(--media-player-bg-clr) solid 1px;
+  border: var(--media-player-bg-clr) solid 2px;
 }
 
 /* FILTER BY TITLE */
@@ -230,7 +230,7 @@ select:focus {
   padding: 0.5rem;
   margin: 1rem;
   width: 11rem;
-  height: 19rem;
+  height: 18rem;
   background-color: var(--pod-image-bg-clr);
   border-radius: 0.5rem;
   filter: drop-shadow(4px 9px 14px #000000);
