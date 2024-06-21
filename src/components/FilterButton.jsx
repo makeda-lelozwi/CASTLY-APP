@@ -1,32 +1,8 @@
 import { Divider, IconButton, InputAdornment, TextField } from "@mui/material";
 import { IoClose } from "react-icons/io5";
 import { FaSearch } from "react-icons/fa";
-import { useState } from "react";
-import SelectFilter from "./SelectFilter";
 
-export default function FilterButton({
-  searchedTitle,
-  setSearchedTitle,
-  filters = [
-    { id: "1", name: "Personal Growth" },
-    { id: "2", name: "Investigative Journalism" },
-    { id: "3", name: "History" },
-    { id: "4", name: "Comedy" },
-    { id: "5", name: "Entertainment" },
-    { id: "6", name: "Business" },
-    { id: "7", name: "Fiction" },
-    { id: "8", name: "News" },
-    { id: "9", name: "Kids and Family" },
-    
-  ],
-  selectedFilter,
-  setSelectedFilter,
-}) {
-  const [selectedGenre, setSelectedGenre] = useState("");
-
-  const handleGenreChange = (event) => {
-    setSelectedGenre(event.target.value);
-  };
+export default function FilterButton({ searchedTitle, setSearchedTitle }) {
   return (
     <div>
       <TextField
@@ -70,15 +46,6 @@ export default function FilterButton({
           ),
         }}
       />
-      <select
-        id="genre-select"
-        value={selectedGenre}
-        onChange={handleGenreChange}
-      >
-        {filters.map((filter, index) => (
-          <option key={index}>{filter.name}</option>
-        ))}
-      </select>
     </div>
   );
 }

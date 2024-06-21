@@ -45,7 +45,8 @@ const AllPodcasts = () => {
       .finally(() => dispatchPodcasts({ type: "loading", payload: false }));
   }, []);
 
-  //sort the list of podcasts by alphabetical order
+  //SORTING LIST OF PODCASTS
+  //default (a-z) sorting
   if (Podcasts.data) {
     Podcasts.data.sort((a, b) => (a.title > b.title ? 1 : -1));
   }
@@ -84,9 +85,6 @@ const AllPodcasts = () => {
 
   const handleSortChange = (event) => {
     setSelectedSort(event.target.value);
-    const sortedData = sortData(Podcasts.data, event.target.value);
-
-    dispatchPodcasts({ type: "successful", payload: sortedData });
   };
 
   /**
@@ -103,21 +101,114 @@ const AllPodcasts = () => {
         .includes(podcastTitle?.toLowerCase().trim())
     );
   };
+  //State or store of the searched podcast title
+  const [searchedTitle, setSearchedTitle] = useState("");
 
-  const filterByGenre = (podcasts = [], selectedGenre) => {
-    if ((selectedGenre = "0")) {
-      return podcasts;
-    } else {
-      return podcasts.filter((podcast) =>
-        podcast.genres?.includes(parseInt(selectedGenre))
-      );
+  //SORTING PODCASTS BY GENRE
+  //State of filter by genre
+  const [selectedGenre, setSelectedGenre] = useState("all");
+
+  const genreIds = {
+    1: "personal growth",
+    2: "investigative journalism",
+    3: "history",
+    4: "comedy",
+    5: "entertainment",
+    6: "business",
+    7: "fiction",
+    8: "news",
+    9: "kids and family",
+  };
+
+  const handleGenreChange = (event) => {
+    setSelectedGenre(event.target.value);
+  };
+  //Logs out the new selected genre when the selected genre changes
+  useEffect(() => {
+    console.log(selectedGenre);
+  }, [selectedGenre]);
+
+  //FILTERING PODCASTS BY GENRE
+
+  const filterByGenres = (data = [], selectedGenres = "all") => {
+    let genreIdToCheck = null;
+    let groupedData = [];
+
+    switch (selectedGenres) {
+      case "all":
+        return data; // If no genres are selected, return all data
+
+      case "personal growth":
+        genreIdToCheck = 1;
+        groupedData = data.filter((podcast) =>
+          podcast.genres.includes(genreIdToCheck)
+        );
+        console.log(groupedData);
+        return groupedData;
+
+      case "investigative":
+        genreIdToCheck = 2;
+        groupedData = data.filter((podcast) =>
+          podcast.genres.includes(genreIdToCheck)
+        );
+        console.log(groupedData);
+        return groupedData;
+
+      case "history":
+        genreIdToCheck = 3;
+        groupedData = data.filter((podcast) =>
+          podcast.genres.includes(genreIdToCheck)
+        );
+        console.log(groupedData);
+        return groupedData;
+      case "comedy":
+        genreIdToCheck = 4;
+        groupedData = data.filter((podcast) =>
+          podcast.genres.includes(genreIdToCheck)
+        );
+        console.log(groupedData);
+        return groupedData;
+      case "entertainment":
+        genreIdToCheck = 5;
+        groupedData = data.filter((podcast) =>
+          podcast.genres.includes(genreIdToCheck)
+        );
+        console.log(groupedData);
+        return groupedData;
+      case "business":
+        genreIdToCheck = 6;
+        groupedData = data.filter((podcast) =>
+          podcast.genres.includes(genreIdToCheck)
+        );
+        console.log(groupedData);
+        return groupedData;
+      case "fiction":
+        genreIdToCheck = 7;
+        groupedData = data.filter((podcast) =>
+          podcast.genres.includes(genreIdToCheck)
+        );
+        console.log(groupedData);
+        return groupedData;
+      case "news":
+        genreIdToCheck = 8;
+        groupedData = data.filter((podcast) =>
+          podcast.genres.includes(genreIdToCheck)
+        );
+        console.log(groupedData);
+        return groupedData;
+      case "kids and family":
+        genreIdToCheck = 9;
+        groupedData = data.filter((podcast) =>
+          podcast.genres.includes(genreIdToCheck)
+        );
+        console.log(groupedData);
+        return groupedData;
+      default:
+        return data; // Default case, return all data if selectedGenres doesn't match any case
     }
   };
 
-  //State/store of the searched podcast title
-  const [searchedTitle, setSearchedTitle] = useState("");
-  //State of filter by genre
-  const [selectedGenre, setSelectedGenre] = useState("2");
+  filterByGenres(Podcasts.data, selectedGenre);
 
   /**
    * Memorizing variable
@@ -128,12 +219,10 @@ const AllPodcasts = () => {
 
   const memorizedPodcasts = useMemo(() => {
     const searched = search(Podcasts.data, searchedTitle);
-
-    
-
-   const sortedData = sortData([...searched], selectedSort);
-    return sortedData?.length > 0 ? sortedData : Podcasts.data;
-  }, [Podcasts, searchedTitle, selectedSort]);
+    const sortedMemoizedData = sortData([...searched], selectedSort);
+    const filteredByGenre = filterByGenres(sortedMemoizedData, selectedGenre);
+    return filteredByGenre?.length > 0 ? filteredByGenre : Podcasts.data;
+  }, [Podcasts, searchedTitle, selectedSort, selectedGenre]);
 
   return (
     <div className="explore-page">
@@ -151,6 +240,20 @@ const AllPodcasts = () => {
           selectedFilter={selectedGenre}
           setSelectedFilter={setSelectedGenre}
         />
+        <select value={selectedGenre} onChange={handleGenreChange}>
+          <option disabled value="all">
+            Select Genres
+          </option>
+          <option value="personal growth">Personal Growth</option>
+          <option value="investigative">Investigative</option>
+          <option value="history">History</option>
+          <option value="comedy">Comedy</option>
+          <option value="entertainment">Entertainment</option>
+          <option value="business">Business</option>
+          <option value="fiction">Fiction</option>
+          <option value="news">News</option>
+          <option value="kids and family">Kids and Family</option>
+        </select>
 
         {Podcasts.isLoading ? (
           <LoadingPage />
