@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import Episode from "./Episodes";
 import { season, episode } from "../../constants/Constants";
 import LoadingPage from "../Loading";
@@ -71,7 +71,18 @@ const Podcast = () => {
 
   return (
     <div className="podcast-info">
-      <h3 className="podcast-name">{podcast.title}</h3>
+      <div className="top-header">
+        <Link
+          className="back-button"
+          to={`/explore`}
+          style={{ textDecoration: "none" }}
+        >
+          Back To Explore
+        </Link>
+
+        <h3 className="podcast-name">{podcast.title}</h3>
+      </div>
+
       <div className="podcast-desc">
         <div className="indiv-podcast-image-container">
           <img

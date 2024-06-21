@@ -17,7 +17,7 @@ const SignUp = () => {
               fill="#e6901a"
             />
           </svg>
-          <h2>Castly</h2>
+          <h2 style={{ color: "#e6901a" }}>Castly</h2>
         </div>
         <div className="sign-up-form">
           <h3>Sign Up</h3>
@@ -43,6 +43,7 @@ const SignUp = () => {
           </form>
         </div>
       </div>
+      <div className="sign-up-background"></div>
     </div>
   );
 };

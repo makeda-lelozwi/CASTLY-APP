@@ -41,13 +41,18 @@ body {
   justify-content: center;
   align-items: center;
   margin: 0 auto;
+  z-index: 12;
 }
 
 .sign-up-logo {
   display: flex;
   justify-content: center;
   align-items: center;
+  
+  z-index: 12;
 }
+
+
 .sign-up-container h2 {
   margin-left: 3rem;
   text-transform: uppercase;
@@ -62,6 +67,7 @@ body {
 
 h3 {
   text-align: center;
+  
 }
 
 form {
@@ -106,6 +112,19 @@ input:focus {
   width: 100px;
 }
 
+.sign-up-background {
+  background-color: var(--search-bar-clr);
+  height: 40em;
+  width: 40rem;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  z-index: 11;
+}
+
 /* LAYOUT */
 .layout {
   display: flex;
@@ -145,6 +164,22 @@ input:focus {
   text-decoration: none;
   font-weight: bold;
   font-size: 1.1rem;
+}
+
+/* SELECTS */
+select {
+  background-color: var(--search-bar-clr);
+  border: black solid 1px;
+  height: 2rem;
+  width: 150px;
+  color: var(--main-txt-clr);
+  font-family: var(--main-font);
+  border-radius: 40px;
+  padding: 0.2rem;
+}
+
+select:focus {
+  border: var(--media-player-bg-clr) solid 1px;
 }
 
 /* FILTER BY TITLE */
@@ -193,12 +228,16 @@ input:focus {
 
 .podcast-card {
   padding: 0.5rem;
-  margin: 1rem ;
+  margin: 1rem;
   width: 11rem;
   height: 19rem;
   background-color: var(--pod-image-bg-clr);
   border-radius: 0.5rem;
   filter: drop-shadow(4px 9px 14px #000000);
+}
+
+.podcast-card:hover {
+  filter: drop-shadow(4px 9px 14px var(--media-player-bg-clr));
 }
 
 .podcast-image-container {
@@ -227,7 +266,6 @@ input:focus {
   font-size: 0.6rem;
   text-align: center;
 }
-
 
 /* INDIVIDUAL PODCAST */
 .podcast-info {
@@ -267,11 +305,14 @@ input:focus {
 
 .podcast-desc {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
+  max-width: 90%;
 }
 
 .details-and-genres {
   padding: 0;
+  filter: drop-shadow(4px 9px 14px rgba(0, 0, 0, 0.719));
+  max-width: 90%;
 }
 
 .podcast-details {
@@ -304,7 +345,6 @@ input:focus {
   position: relative;
   margin: 0.5rem 0;
   gap: 0.5rem;
-
 }
 /* SEASONS */
 .season-container {
@@ -320,6 +360,7 @@ input:focus {
   padding: 0 1rem;
   margin-left: -2.5rem;
   color: var(--podcasts-container-clr);
+  filter: drop-shadow(4px 9px 14px #000000);
 }
 .season-link {
   color: black;
@@ -331,6 +372,21 @@ input:focus {
   height: 45vh;
   overflow: auto;
 }
+.top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+.back-button {
+  color: var(--main-txt-clr);
+  font-weight: bold;
+}
+
+podcast-name {
+  margin-left: 3rem;
+}
+
 .play-icon-container {
   display: flex;
   justify-content: center;
@@ -362,7 +418,9 @@ input:focus {
   color: var(--main-txt-clr);
   margin: 0.5rem 0;
 }
-
+.episode-card:hover {
+  border: var(--pod-image-bg-clr) solid;
+}
 .episode-details {
   flex-grow: 2;
 }

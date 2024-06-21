@@ -227,12 +227,14 @@ const AllPodcasts = () => {
   return (
     <div className="explore-page">
       <div className="podcasts-container">
-        <select value={selectedSort} onChange={handleSortChange}>
-          <option value="a-z"> A-Z</option>
-          <option value="z-a"> Z-A</option>
-          <option value="newest"> Newest</option>
-          <option value="oldest"> Oldest</option>
-        </select>
+        <div className="custom-selects">
+          <select value={selectedSort} onChange={handleSortChange}>
+            <option value="a-z"> A-Z</option>
+            <option value="z-a"> Z-A</option>
+            <option value="newest"> Newest</option>
+            <option value="oldest"> Oldest</option>
+          </select>
+        </div>
         <FilterButton
           className="filter-button"
           searchedTitle={searchedTitle}
@@ -240,20 +242,22 @@ const AllPodcasts = () => {
           selectedFilter={selectedGenre}
           setSelectedFilter={setSelectedGenre}
         />
-        <select value={selectedGenre} onChange={handleGenreChange}>
-          <option disabled value="all">
-            Select Genres
-          </option>
-          <option value="personal growth">Personal Growth</option>
-          <option value="investigative">Investigative</option>
-          <option value="history">History</option>
-          <option value="comedy">Comedy</option>
-          <option value="entertainment">Entertainment</option>
-          <option value="business">Business</option>
-          <option value="fiction">Fiction</option>
-          <option value="news">News</option>
-          <option value="kids and family">Kids and Family</option>
-        </select>
+        <div className="custom-selects">
+          <select value={selectedGenre} onChange={handleGenreChange}>
+            <option disabled value="all">
+              Select Genres
+            </option>
+            <option value="personal growth">Personal Growth</option>
+            <option value="investigative">Investigative</option>
+            <option value="history">History</option>
+            <option value="comedy">Comedy</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="business">Business</option>
+            <option value="fiction">Fiction</option>
+            <option value="news">News</option>
+            <option value="kids and family">Kids and Family</option>
+          </select>
+        </div>
 
         {Podcasts.isLoading ? (
           <LoadingPage />
