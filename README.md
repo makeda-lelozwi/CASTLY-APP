@@ -36,8 +36,6 @@ Once you're signed-in, feel free to browse through the many genres of podcasts a
 
 #### FILE STRUCTURE
 
-
 #### BUGS
-1. No form validation in the sign-up page 
 
-
+1. No form validation in the sign-up page
