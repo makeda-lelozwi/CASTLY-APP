@@ -8,15 +8,28 @@ There are two ways to run Castly on your desktop device:
 
 1. On your local machine
 
-To run Castly locally, you can follow these simple steps:
+To run Castly locally, you can follow these simple steps (ensure that you already have Vite installed on your device):
 
-    a. clone the repo
+    a. clone the repo:
+
+````bash
+git clone https://github.com/makeda-lelozwi/Makdum436_WFC2401_Group-B_Makeda_Dumeko_DJS11.git
 
     b. install the dependencies
 
+    ```bash
+    npm install
+
     c. run the vite application
 
+    ```bash
+    npm run dev
+
+    d. copy and paste the local server link to your browser of choice
+
+
 2. Access the site via the following Netlify link:
+   https://castly-app.netlify.app
 
 Once you're signed-in, feel free to browse through the many genres of podcasts available until you find your vibe. And if you like what you hear, "heart" it and we'll save it for you for later. Enjoy!
 
@@ -36,6 +49,19 @@ Once you're signed-in, feel free to browse through the many genres of podcasts a
 
 #### FILE STRUCTURE
 
+──public --> this is where I stored the svg and favicon
+└───src # Source files
+├───components # React components
+├───constants # Constants and localStorage functions
+├───context # Podcast context used for playing audio
+├───pages # Page components
+│ ├───explore
+│ ├───favourites
+│ └───individual podcast
+└───styles #CSS Styles
+
 #### BUGS
 
 1. No form validation in the sign-up page
+
+````
