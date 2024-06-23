@@ -255,7 +255,7 @@ const AllPodcasts = () => {
             <div>
               <h1>{Podcasts.response ? "" : Podcasts.message}</h1>
             </div>
-            {memorizedPodcasts.map((podcast) => {
+            {memorizedPodcasts?.map((podcast) => {
               return (
                 <Link
                   to={`${podcast.id}`}
