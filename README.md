@@ -35,3 +35,9 @@ Once you're signed-in, feel free to browse through the many genres of podcasts a
 3. Improve styling for the favorites page
 
 #### FILE STRUCTURE
+
+
+#### BUGS
+1. No form validation in the sign-up page 
+
+
