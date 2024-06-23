@@ -12,20 +12,21 @@ To run Castly locally, you can follow these simple steps (ensure that you alread
 
     a. clone the repo:
 
-````bash
-git clone https://github.com/makeda-lelozwi/Makdum436_WFC2401_Group-B_Makeda_Dumeko_DJS11.git
+    ```bash
+    git clone https://github.com/makeda-lelozwi/Makdum436_WFC2401_Group-B_Makeda_Dumeko_DJS11.git
+    ```
 
     b. install the dependencies
 
     ```bash
     npm install
-
+    ```
     c. run the vite application
 
     ```bash
     npm run dev
-
-    d. copy and paste the local server link to your browser of choice
+    ```
+    d. copy and paste the local server url to your browser of choice
 
 
 2. Access the site via the following Netlify link:
@@ -33,11 +34,11 @@ git clone https://github.com/makeda-lelozwi/Makdum436_WFC2401_Group-B_Makeda_Dum
 
 Once you're signed-in, feel free to browse through the many genres of podcasts available until you find your vibe. And if you like what you hear, "heart" it and we'll save it for you for later. Enjoy!
 
-#### MOST RECENT CHANGES
+##### MOST RECENT CHANGES
 
-1. Adding final styles to the loading page and the podcasts page.
+  1. Adding final styles to the loading page and the podcasts page.
 
-2. Adding the filter by genre and sort functionalities.
+  2. Adding the filter by genre and sort functionalities.
 
 #### FUTURE PLANS FOR CASTLY
 
