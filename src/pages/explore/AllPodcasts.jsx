@@ -32,7 +32,7 @@ const AllPodcasts = () => {
 
   useEffect(() => {
     dispatchPodcasts({ type: "loading", payload: true });
-    fetch("https:/podcast-api.netlify.app")
+    fetch("https://podcast-api.netlify.app")
       .then((res) => {
         return res.json();
       })
