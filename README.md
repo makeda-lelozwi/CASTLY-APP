@@ -4,10 +4,11 @@ Step into the intimate world of Castly. Your new go-to streaming app for all you
 
 ### HOW TO RUN CASTLY
 
-There are two ways to run Castly on your desktop device:
+You can experience castly through this Netlify link and jump straight in: https://castly-app.netlify.app
 
-1. On your local machine
+Or 
 
+Run it on your local machine:
 To run Castly locally, you can follow these simple steps (ensure that you already have Vite installed on your device):
 
     a. clone the repo:
