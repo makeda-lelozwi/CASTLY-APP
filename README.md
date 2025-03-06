@@ -61,8 +61,4 @@ Once you're signed-in, feel free to browse through the many genres of podcasts a
 │ └───individual podcast
 └───styles #CSS Styles
 
-#### BUGS
 
-1. No form validation in the sign-up page
-
-````
